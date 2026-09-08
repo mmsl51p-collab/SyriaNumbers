@@ -7,143 +7,305 @@
 <title>SyriaNumbers</title>
 
 <style>
-body {
-    margin:0;
-    font-family:Arial;
-    background:#f2f4f8;
-    color:#222;
+
+*{
+box-sizing:border-box;
+font-family:Tajawal,Arial,sans-serif;
 }
 
-header {
-    background:#111827;
-    color:white;
-    padding:20px;
-    text-align:center;
+body{
+margin:0;
+background:#0f172a;
+color:white;
 }
 
-.container {
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+header{
+padding:30px 20px;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
 
-.box {
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow:0 5px 15px #0002;
+header h1{
+font-size:35px;
+margin:0;
 }
 
-button {
-    width:100%;
-    padding:15px;
-    margin:8px 0;
-    border:0;
-    border-radius:12px;
-    background:#111827;
-    color:white;
-    font-size:17px;
-    cursor:pointer;
+header p{
+opacity:.9;
 }
 
-.number {
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    margin:20px;
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
 }
 
-.price {
-    text-align:center;
-    font-size:18px;
+.hero{
+background:#1e293b;
+padding:25px;
+border-radius:25px;
+text-align:center;
+margin-top:20px;
+}
+
+.hero h2{
+font-size:28px;
+}
+
+
+.countries{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+
+.country{
+
+background:#334155;
+color:white;
+border:0;
+padding:20px;
+border-radius:20px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+
+.country:hover{
+transform:translateY(-5px);
+background:#475569;
+}
+
+
+
+.card{
+
+background:#1e293b;
+border-radius:25px;
+padding:25px;
+margin-top:25px;
+box-shadow:0 10px 30px #0005;
+
+}
+
+
+.phone{
+
+font-size:30px;
+font-weight:bold;
+text-align:center;
+margin:20px;
+direction:ltr;
+
+}
+
+
+.price{
+
+text-align:center;
+font-size:20px;
+color:#38bdf8;
+
+}
+
+
+.buy{
+
+width:100%;
+padding:15px;
+border:0;
+border-radius:15px;
+background:#2563eb;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+
+}
+
+
+.buy:hover{
+background:#1d4ed8;
+}
+
+
+
+.info{
+
+margin-top:25px;
+background:#172554;
+padding:20px;
+border-radius:20px;
+line-height:1.8;
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:25px;
+opacity:.7;
+
+}
+
+
+
+@media(max-width:600px){
+
+.countries{
+grid-template-columns:1fr;
+}
+
+header h1{
+font-size:28px;
+}
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
+
 <h1>📱 SyriaNumbers</h1>
-<p>منصة الأرقام الافتراضية</p>
+
+<p>منصة الأرقام الافتراضية الحديثة</p>
+
 </header>
+
 
 
 <div class="container">
 
-<div class="box">
+
+<div class="hero">
+
 <h2>اختر الدولة</h2>
 
-<button onclick="show('🇸🇾 سوريا')">
+<p>
+احصل على رقم افتراضي بسهولة
+</p>
+
+</div>
+
+
+
+<div class="countries">
+
+
+<button class="country" onclick="show('🇸🇾 سوريا')">
 🇸🇾 سوريا
 </button>
 
-<button onclick="show('🇹🇷 تركيا')">
+
+<button class="country" onclick="show('🇹🇷 تركيا')">
 🇹🇷 تركيا
 </button>
 
-<button onclick="show('🇺🇸 أمريكا')">
+
+<button class="country" onclick="show('🇺🇸 أمريكا')">
 🇺🇸 أمريكا
 </button>
 
-<button onclick="show('🇬🇧 بريطانيا')">
+
+<button class="country" onclick="show('🇬🇧 بريطانيا')">
 🇬🇧 بريطانيا
 </button>
 
+
+</div>
+
+
+
+<div id="result"></div>
+
+
+
+<div class="info">
+
+<h3>⭐ لماذا نحن؟</h3>
+
+<p>
+✔ تصميم سريع<br>
+✔ يعمل على الهاتف<br>
+✔ نظام شراء قابل للتطوير<br>
+✔ جاهز لإضافة الدفع والحسابات
+</p>
+
 </div>
 
 
-<div id="result" class="box">
-اختر دولة لعرض الرقم
-</div>
-
-
-<div class="box">
-⚠️ هذه نسخة تجريبية للموقع.
-</div>
-
 
 </div>
+
+
+<footer>
+
+© 2026 SyriaNumbers
+
+</footer>
+
+
 
 
 <script>
 
+
 function show(country){
 
-document.getElementById("result").innerHTML =
 
-`
-<h2>${country}</h2>
+document.getElementById("result").innerHTML=`
 
-<div class="number">
+<div class="card">
+
+<h1>${country}</h2>
+
+
+<div class="phone">
 +000 000 000 000
 </div>
+
 
 <div class="price">
 السعر: 2$
 </div>
 
-<br>
 
-<button onclick="buy()">
+<button class="buy" onclick="buy()">
 شراء الرقم
 </button>
 
+
+</div>
+
 `;
+
 
 }
 
 
 function buy(){
 
-alert("سيتم تفعيل نظام الشراء لاحقًا");
+alert("طلبك قيد المعالجة، انتظر");
 
 }
+
 
 </script>
 
 
+
 </body>
+
 </html>
