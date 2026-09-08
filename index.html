@@ -1,311 +1,65 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+function generateNumber(country) {
 
-<title>SyriaNumbers</title>
+    let number = "";
 
-<style>
+    switch(country) {
 
-*{
-box-sizing:border-box;
-font-family:Tajawal,Arial,sans-serif;
+        case "أمريكا":
+            number = "+1 " + Math.floor(2000000000 + Math.random() * 7000000000);
+            break;
+
+        case "روسيا":
+            number = "+7 " + Math.floor(9000000000 + Math.random() * 900000000);
+            break;
+
+        case "ألمانيا":
+            number = "+49 " + Math.floor(100000000 + Math.random() * 900000000);
+            break;
+
+        case "السعودية":
+            number = "+966 5" + Math.floor(10000000 + Math.random() * 90000000);
+            break;
+
+        case "الأردن":
+            number = "+962 7" + Math.floor(10000000 + Math.random() * 90000000);
+            break;
+
+        case "اليمن":
+            number = "+967 " + Math.floor(700000000 + Math.random() * 900000000);
+            break;
+
+        case "الصين":
+            number = "+86 " + Math.floor(10000000000 + Math.random() * 90000000000);
+            break;
+
+        case "الهند":
+            number = "+91 " + Math.floor(6000000000 + Math.random() * 3000000000);
+            break;
+
+        case "باكستان":
+            number = "+92 3" + Math.floor(10000000 + Math.random() * 90000000);
+            break;
+
+        default:
+            number = "اختر دولة";
+    }
+
+    return number;
 }
+<button class="country" onclick="show('أمريكا')">🇺🇸 أمريكا</button>
 
-body{
-margin:0;
-background:#0f172a;
-color:white;
-}
+<button class="country" onclick="show('روسيا')">🇷🇺 روسيا</button>
 
-header{
-padding:30px 20px;
-text-align:center;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-}
+<button class="country" onclick="show('ألمانيا')">🇩🇪 ألمانيا</button>
 
-header h1{
-font-size:35px;
-margin:0;
-}
+<button class="country" onclick="show('السعودية')">🇸🇦 السعودية</button>
 
-header p{
-opacity:.9;
-}
+<button class="country" onclick="show('الأردن')">🇯🇴 الأردن</button>
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
+<button class="country" onclick="show('اليمن')">🇾🇪 اليمن</button>
 
-.hero{
-background:#1e293b;
-padding:25px;
-border-radius:25px;
-text-align:center;
-margin-top:20px;
-}
+<button class="country" onclick="show('الصين')">🇨🇳 الصين</button>
 
-.hero h2{
-font-size:28px;
-}
+<button class="country" onclick="show('الهند')">🇮🇳 الهند</button>
 
-
-.countries{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-margin-top:20px;
-}
-
-
-.country{
-
-background:#334155;
-color:white;
-border:0;
-padding:20px;
-border-radius:20px;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-
-}
-
-
-.country:hover{
-transform:translateY(-5px);
-background:#475569;
-}
-
-
-
-.card{
-
-background:#1e293b;
-border-radius:25px;
-padding:25px;
-margin-top:25px;
-box-shadow:0 10px 30px #0005;
-
-}
-
-
-.phone{
-
-font-size:30px;
-font-weight:bold;
-text-align:center;
-margin:20px;
-direction:ltr;
-
-}
-
-
-.price{
-
-text-align:center;
-font-size:20px;
-color:#38bdf8;
-
-}
-
-
-.buy{
-
-width:100%;
-padding:15px;
-border:0;
-border-radius:15px;
-background:#2563eb;
-color:white;
-font-size:18px;
-cursor:pointer;
-margin-top:20px;
-
-}
-
-
-.buy:hover{
-background:#1d4ed8;
-}
-
-
-
-.info{
-
-margin-top:25px;
-background:#172554;
-padding:20px;
-border-radius:20px;
-line-height:1.8;
-
-}
-
-
-
-footer{
-
-text-align:center;
-padding:25px;
-opacity:.7;
-
-}
-
-
-
-@media(max-width:600px){
-
-.countries{
-grid-template-columns:1fr;
-}
-
-header h1{
-font-size:28px;
-}
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<h1>📱 SyriaNumbers</h1>
-
-<p>منصة الأرقام الافتراضية الحديثة</p>
-
-</header>
-
-
-
-<div class="container">
-
-
-<div class="hero">
-
-<h2>اختر الدولة</h2>
-
-<p>
-احصل على رقم افتراضي بسهولة
-</p>
-
-</div>
-
-
-
-<div class="countries">
-
-
-<button class="country" onclick="show('🇸🇾 سوريا')">
-🇸🇾 سوريا
-</button>
-
-
-<button class="country" onclick="show('🇹🇷 تركيا')">
-🇹🇷 تركيا
-</button>
-
-
-<button class="country" onclick="show('🇺🇸 أمريكا')">
-🇺🇸 أمريكا
-</button>
-
-
-<button class="country" onclick="show('🇬🇧 بريطانيا')">
-🇬🇧 بريطانيا
-</button>
-
-
-</div>
-
-
-
-<div id="result"></div>
-
-
-
-<div class="info">
-
-<h3>⭐ لماذا نحن؟</h3>
-
-<p>
-✔ تصميم سريع<br>
-✔ يعمل على الهاتف<br>
-✔ نظام شراء قابل للتطوير<br>
-✔ جاهز لإضافة الدفع والحسابات
-</p>
-
-</div>
-
-
-
-</div>
-
-
-<footer>
-
-© 2026 SyriaNumbers
-
-</footer>
-
-
-
-
-<script>
-
-
-function show(country){
-
-
-document.getElementById("result").innerHTML=`
-
-<div class="card">
-
-<h1>${country}</h2>
-
-
-<div class="phone">
-+000 000 000 000
-</div>
-
-
-<div class="price">
-السعر: 2$
-</div>
-
-
-<button class="buy" onclick="buy()">
-شراء الرقم
-</button>
-
-
-</div>
-
-`;
-
-
-}
-
-
-function buy(){
-
-alert("طلبك قيد المعالجة، انتظر");
-
-}
-
-
-</script>
-
-
-
-</body>
-
-</html>
+<button class="country" onclick="show('باكستان')">🇵🇰 باكستان</button>
