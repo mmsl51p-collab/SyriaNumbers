@@ -1,497 +1,388 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SyriaNumbers</title>
-
-<style>
-
-*{
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-margin:0;
-background:#030303;
-color:white;
-}
-
-header{
-background:linear-gradient(135deg,#000,#151515,#000);
-padding:35px 20px;
-text-align:center;
-border-bottom:1px solid #333;
-}
-
-header h1{
-margin:0;
-font-size:40px;
-color:#00e5ff;
-}
-
-header p{
-color:#aaa;
-font-size:18px;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
-.box{
-background:#111;
-border:1px solid #333;
-border-radius:25px;
-padding:25px;
-margin-bottom:20px;
-box-shadow:0 0 25px #000;
-}
-
-h2{
-text-align:center;
-}
-
-.services,
-.countries{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-button{
-width:100%;
-padding:17px;
-border-radius:18px;
-background:#181818;
-border:1px solid #333;
-color:white;
-font-size:17px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#00e5ff;
-color:black;
-}
-
-.card{
-background:#111;
-border:1px solid #333;
-border-radius:25px;
-padding:25px;
-margin-top:20px;
-text-align:center;
-}
-
-.phone{
-font-size:30px;
-font-weight:bold;
-color:#00ff99;
-direction:ltr;
-margin:20px;
-}
-
-.price{
-color:#ffd700;
-font-size:20px;
-}
-
-select{
-width:100%;
-padding:15px;
-background:#181818;
-color:white;
-border:1px solid #333;
-border-radius:15px;
-font-size:16px;
-}
-
-.buy{
-background:#00e5ff;
-color:black;
-margin-top:15px;
-}
-
-.timer{
-font-size:35px;
-color:#ffcc00;
-text-align:center;
-}
-
-.footer{
-text-align:center;
-color:#777;
-padding:30px;
-}
-
-@media(max-width:600px){
-
-.services,
-.countries{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<h1>📱 SyriaNumbers</h1>
-
-<p>منصة الأرقام الافتراضية</p>
-
-</header>
-
-<div class="container">
-<div class="box">
-
-<h2>1️⃣ اختر الخدمة</h2>
-
-<div class="services">
-
-<button onclick="selectService('واتساب')">
-📱 واتساب
-</button>
-
-<button onclick="selectService('تيليجرام')">
-✈️ تيليجرام
-</button>
-
-<button onclick="selectService('فيسبوك')">
-📘 فيسبوك
-</button>
-
-<button onclick="selectService('تويتر')">
-🐦 تويتر
-</button>
-
-</div>
-
-</div>
-
-
-<div class="box">
-
-<h2>2️⃣ اختر الدولة</h2>
-
-<div class="countries">
-
-
-<button onclick="showNumber('🇺🇸 أمريكا')">
-🇺🇸 أمريكا
-</button>
-
-
-<button onclick="showNumber('🇷🇺 روسيا')">
-🇷🇺 روسيا
-</button>
-
-
-<button onclick="showNumber('🇩🇪 ألمانيا')">
-🇩🇪 ألمانيا
-</button>
-
-
-<button onclick="showNumber('🇸🇦 السعودية')">
-🇸🇦 السعودية
-</button>
-
-
-<button onclick="showNumber('🇯🇴 الأردن')">
-🇯🇴 الأردن
-</button>
-
-
-<button onclick="showNumber('🇾🇪 اليمن')">
-🇾🇪 اليمن
-</button>
-
-
-<button onclick="showNumber('🇨🇳 الصين')">
-🇨🇳 الصين
-</button>
-
-
-<button onclick="showNumber('🇮🇳 الهند')">
-🇮🇳 الهند
-</button>
-
-
-<button onclick="showNumber('🇵🇰 باكستان')">
-🇵🇰 باكستان
-</button>
-
-
-</div>
-
-</div>
-
-
-<div id="result"></div>
-
-
-<div class="box">
-
-<h3>⭐ مميزات الموقع</h3>
-
-<p>
-✔ تصميم فاخر<br>
-✔ توليد أرقام تلقائي<br>
-✔ نظام طلب كود تجريبي<br>
-✔ يعمل على الهاتف
-</p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer">
-
-© 2026 SyriaNumbers
-
-</div>
-
-
-<script>
-
-let selectedService = "";
-
-
-function selectService(service){
-
-selectedService = service;
-
-alert("تم اختيار: " + service);
-
-}
-
-
-
-function generateNumber(country){
-
-let number="";
-
-
-switch(country){
-
-
-case "🇺🇸 أمريكا":
-number="+1 "+Math.floor(2000000000+Math.random()*7000000000);
-break;
-
-
-case "🇷🇺 روسيا":
-number="+7 "+Math.floor(1000000000+Math.random()*8000000000);
-break;
-
-
-case "🇩🇪 ألمانيا":
-number="+49 "+Math.floor(100000000+Math.random()*900000000);
-break;
-
-
-case "🇸🇦 السعودية":
-number="+966 5"+Math.floor(10000000+Math.random()*90000000);
-break;
-
-
-case "🇯🇴 الأردن":
-number="+962 7"+Math.floor(10000000+Math.random()*90000000);
-break;
-
-
-case "🇾🇪 اليمن":
-number="+967 "+Math.floor(700000000+Math.random()*200000000);
-break;
-
-
-case "🇨🇳 الصين":
-number="+86 "+Math.floor(10000000000+Math.random()*90000000000);
-break;
-
-
-case "🇮🇳 الهند":
-number="+91 "+Math.floor(6000000000+Math.random()*3000000000);
-break;
-
-
-case "🇵🇰 باكستان":
-number="+92 3"+Math.floor(10000000+Math.random()*90000000);
-break;
-
-
-}
-
-
-return number;
-
-}
-function showNumber(country){
-
-if(selectedService==""){
-
-alert("اختر الخدمة أولاً");
-
-return;
-
-}
-
-
-let number = generateNumber(country);
-
-
-document.getElementById("result").innerHTML = `
-
-<div class="card">
-
-<h2>${selectedService}</h2>
-
-<h3>${country}</h3>
-
-
-<div class="phone">
-
-${number}
-
-</div>
-
-
-<div class="price">
-
-السعر: 2$
-
-</div>
-
-
-<button class="buy" onclick="requestCode()">
-
-طلب الكود
-
-</button>
-
-
-<button class="buy" onclick="showNumber('${country}')">
-
-توليد رقم جديد
-
-</button>
-
-
-</div>
-
-`;
-
-}
-
-
-
-function requestCode(){
-
-
-let box=document.getElementById("result");
-
-
-box.innerHTML += `
-
-<div class="card">
-
-<h2>⏳ جاري طلب الكود</h2>
-
-<div class="timer" id="timer">
-
-120
-
-</div>
-
-<p>
-
-انتظر حتى انتهاء الوقت
-
-</p>
-
-</div>
-
-`;
-
-
-let time=120;
-
-
-let countdown=setInterval(function(){
-
-
-time--;
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-
-if(time<=0){
-
-
-clearInterval(countdown);
-
-
-
-let code=Math.floor(100000+Math.random()*900000);
-
-
-
-box.innerHTML += `
-
-<div class="card">
-
-<h2>✅ الكود التجريبي</h2>
-
-
-<div class="phone">
-
-${code}
-
-</div>
-
-
-<p>
-
-هذا كود اختبار فقط
-
-</p>
-
-
-</div>
-
-`;
-
-
-}
-
-
-},1000);
-
-
-}
-
-
-
-</script>
-
-
-</body>
-
-</html>
+<!DOCTYPE html>  <html lang="ar" dir="rtl">  <head>  <meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>SyriaNumbers</title>  <style>  
+  
+*{  
+box-sizing:border-box;  
+font-family:Arial,sans-serif;  
+}  
+  
+body{  
+margin:0;  
+background:#030303;  
+color:white;  
+}  
+  
+header{  
+background:linear-gradient(135deg,#000,#151515,#000);  
+padding:35px 20px;  
+text-align:center;  
+border-bottom:1px solid #333;  
+}  
+  
+header h1{  
+margin:0;  
+font-size:40px;  
+color:#00e5ff;  
+}  
+  
+header p{  
+color:#aaa;  
+font-size:18px;  
+}  
+  
+.container{  
+max-width:900px;  
+margin:auto;  
+padding:20px;  
+}  
+  
+.box{  
+background:#111;  
+border:1px solid #333;  
+border-radius:25px;  
+padding:25px;  
+margin-bottom:20px;  
+box-shadow:0 0 25px #000;  
+}  
+  
+h2{  
+text-align:center;  
+}  
+  
+.services,  
+.countries{  
+display:grid;  
+grid-template-columns:repeat(2,1fr);  
+gap:15px;  
+}  
+  
+button{  
+width:100%;  
+padding:17px;  
+border-radius:18px;  
+background:#181818;  
+border:1px solid #333;  
+color:white;  
+font-size:17px;  
+cursor:pointer;  
+transition:.3s;  
+}  
+  
+button:hover{  
+background:#00e5ff;  
+color:black;  
+}  
+  
+.card{  
+background:#111;  
+border:1px solid #333;  
+border-radius:25px;  
+padding:25px;  
+margin-top:20px;  
+text-align:center;  
+}  
+  
+.phone{  
+font-size:30px;  
+font-weight:bold;  
+color:#00ff99;  
+direction:ltr;  
+margin:20px;  
+}  
+  
+.price{  
+color:#ffd700;  
+font-size:20px;  
+}  
+  
+select{  
+width:100%;  
+padding:15px;  
+background:#181818;  
+color:white;  
+border:1px solid #333;  
+border-radius:15px;  
+font-size:16px;  
+}  
+  
+.buy{  
+background:#00e5ff;  
+color:black;  
+margin-top:15px;  
+}  
+  
+.timer{  
+font-size:35px;  
+color:#ffcc00;  
+text-align:center;  
+}  
+  
+.footer{  
+text-align:center;  
+color:#777;  
+padding:30px;  
+}  
+  
+@media(max-width:600px){  
+  
+.services,  
+.countries{  
+grid-template-columns:1fr;  
+}  
+  
+}  
+  
+</style>  </head>  <body>  <header>  <h1>📱 SyriaNumbers</h1>  <p>منصة الأرقام الافتراضية</p>  </header>  <div class="container">  
+<div class="box">  <h2>1️⃣ اختر الخدمة</h2>  <div class="services">  <button onclick="selectService('واتساب')">  
+📱 واتساب  
+</button>  <button onclick="selectService('تيليجرام')">  
+✈️ تيليجرام  
+</button>  <button onclick="selectService('فيسبوك')">  
+📘 فيسبوك  
+</button>  <button onclick="selectService('تويتر')">  
+🐦 تويتر  
+</button>  </div>  </div>  <div class="box">  <h2>2️⃣ اختر الدولة</h2>  <div class="countries">  <button onclick="showNumber('🇺🇸 أمريكا')">  
+🇺🇸 أمريكا  
+</button>  <button onclick="showNumber('🇷🇺 روسيا')">  
+🇷🇺 روسيا  
+</button>  <button onclick="showNumber('🇩🇪 ألمانيا')">  
+🇩🇪 ألمانيا  
+</button>  <button onclick="showNumber('🇸🇦 السعودية')">  
+🇸🇦 السعودية  
+</button>  <button onclick="showNumber('🇯🇴 الأردن')">  
+🇯🇴 الأردن  
+</button>  <button onclick="showNumber('🇾🇪 اليمن')">  
+🇾🇪 اليمن  
+</button>  <button onclick="showNumber('🇨🇳 الصين')">  
+🇨🇳 الصين  
+</button>  <button onclick="showNumber('🇮🇳 الهند')">  
+🇮🇳 الهند  
+</button>  <button onclick="showNumber('🇵🇰 باكستان')">  
+🇵🇰 باكستان  
+</button>  </div>  </div>  <div id="result"></div>  <div class="box">  <h3></h3>  <p>  
+✔ قريباً سيتم إضافة قسم تعليم الهكر<br>  
+</p>  </div>  </div>  <div class="footer">  © 2026 SyriaNumbers
+
+</div>  <script>  
+  
+let selectedService = "";  
+  
+  
+function selectService(service){  
+  
+selectedService = service;  
+  
+alert("تم اختيار: " + service);  
+  
+}  
+  
+  
+  
+function generateNumber(country){  
+  
+let number="";  
+  
+  
+switch(country){  
+  
+  
+case "🇺🇸 أمريكا":  
+number="+1 "+Math.floor(2000000000+Math.random()*7000000000);  
+break;  
+  
+  
+case "🇷🇺 روسيا":  
+number="+7 "+Math.floor(1000000000+Math.random()*8000000000);  
+break;  
+  
+  
+case "🇩🇪 ألمانيا":  
+number="+49 "+Math.floor(100000000+Math.random()*900000000);  
+break;  
+  
+  
+case "🇸🇦 السعودية":  
+number="+966 5"+Math.floor(10000000+Math.random()*90000000);  
+break;  
+  
+  
+case "🇯🇴 الأردن":  
+number="+962 7"+Math.floor(10000000+Math.random()*90000000);  
+break;  
+  
+  
+case "🇾🇪 اليمن":  
+number="+967 "+Math.floor(700000000+Math.random()*200000000);  
+break;  
+  
+  
+case "🇨🇳 الصين":  
+number="+86 "+Math.floor(10000000000+Math.random()*90000000000);  
+break;  
+  
+  
+case "🇮🇳 الهند":  
+number="+91 "+Math.floor(6000000000+Math.random()*3000000000);  
+break;  
+  
+  
+case "🇵🇰 باكستان":  
+number="+92 3"+Math.floor(10000000+Math.random()*90000000);  
+break;  
+  
+  
+}  
+  
+  
+return number;  
+  
+}  
+function showNumber(country){  
+  
+if(selectedService==""){  
+  
+alert("اختر النداء أولاً");  
+  
+return;  
+  
+}  
+  
+  
+let number = generateNumber(country);  
+  
+  
+document.getElementById("result").innerHTML = `  
+  
+<div class="card">  
+  
+<h2>${selectedService}</h2>  
+  
+<h3>${country}</h3>  
+  
+  
+<div class="phone">  
+  
+${number}  
+  
+</div>  
+  
+  
+<div class="price">  
+  
+مجاني في هذه الفترة  
+  
+</div>  
+  
+  
+<button class="buy" onclick="requestCode()">  
+  
+طلب الكود  
+  
+</button>  
+  
+  
+<button class="buy" onclick="showNumber('${country}')">  
+  
+إنشاء رقم جديد  
+  
+</button>  
+  
+  
+</div>  
+  
+`;  
+  
+}  
+  
+  
+  
+function requestCode(){  
+  
+  
+let box=document.getElementById("result");  
+  
+  
+box.innerHTML += `  
+  
+<div class="card">  
+  
+<h2>⏳ جاري طلب الكود</h2>  
+  
+<div class="timer" id="timer">  
+  
+30  
+  
+</div>  
+  
+<p>  
+  
+انتظر حتى انتهاء الوقت  
+  
+</p>  
+  
+</div>  
+  
+`;  
+  
+  
+let time=120;  
+  
+  
+let countdown=setInterval(function(){  
+  
+  
+time--;  
+  
+  
+document.getElementById("timer").innerHTML=time;  
+  
+  
+  
+if(time<=0){  
+  
+  
+clearInterval(countdown);  
+  
+  
+  
+let code=Math.floor(100000+Math.random()*900000);  
+  
+  
+  
+box.innerHTML += `  
+  
+<div class="card">  
+  
+<h2>✅ وصل الكود </h2>  
+  
+  
+<div class="phone">  
+  
+${code}  
+  
+</div>  
+  
+  
+<p>  
+  
+تم وصول الكود 
+  
+</p>  
+  
+  
+</div>  
+  
+`;  
+  
+  
+}  
+  
+  
+},1000);  
+  
+  
+}  
+  
+  
+  
+</script>  </body>  </html>  
