@@ -1,23 +1,179 @@
-<button class="buy" onclick="showNumber('${country}')">
-توليد رقم جديد
-</button>
-</script>
-function requestCode(country){
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-let service = document.getElementById("service").value;
+<head>
 
-if(service==""){
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-alert("يرجى اختيار الخدمة المطلوبة");
+<title>SyriaNumbers</title>
 
-return;
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#050505;
+color:white;
+}
+
+header{
+background:linear-gradient(135deg,#000,#111,#222);
+padding:35px;
+text-align:center;
+border-bottom:1px solid #333;
+}
+
+header h1{
+color:#00e5ff;
+font-size:38px;
+margin:0;
+}
+
+header p{
+color:#aaa;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.box{
+background:#111;
+border:1px solid #333;
+border-radius:25px;
+padding:25px;
+margin-bottom:20px;
+}
+
+.countries{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+button{
+padding:16px;
+border-radius:15px;
+background:#1a1a1a;
+color:white;
+border:1px solid #333;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#00aaff;
+color:#000;
+}
+
+.card{
+background:#111;
+border:1px solid #333;
+border-radius:25px;
+padding:25px;
+margin-top:20px;
+text-align:center;
+}
+
+.phone{
+font-size:30px;
+color:#00ff99;
+margin:20px;
+direction:ltr;
+}
+
+.price{
+color:#ffd700;
+font-size:20px;
+}
+
+select{
+width:100%;
+padding:15px;
+border-radius:15px;
+background:#1a1a1a;
+color:white;
+border:1px solid #333;
+font-size:16px;
+margin-bottom:15px;
+}
+
+.buy{
+width:100%;
+background:#00aaff;
+color:#000;
+margin-top:10px;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+color:#777;
+}
+
+@media(max-width:600px){
+
+.countries{
+grid-template-columns:1fr;
+}
 
 }
 
-alert(
-"تم إرسال طلب الكود\n\n" +
-"الخدمة: " + service +
-"\nالدولة: " + country
-);
+</style>
 
-}
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>📱 SyriaNumbers</h1>
+
+<p>منصة الأرقام الافتراضية</p>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="box">
+
+<h2>اختر الدولة</h2>
+
+
+<div class="countries">
+
+<button onclick="showNumber('🇺🇸 أمريكا')">🇺🇸 أمريكا</button>
+
+<button onclick="showNumber('🇷🇺 روسيا')">🇷🇺 روسيا</button>
+
+<button onclick="showNumber('🇩🇪 ألمانيا')">🇩🇪 ألمانيا</button>
+
+<button onclick="showNumber('🇸🇦 السعودية')">🇸🇦 السعودية</button>
+
+<button onclick="showNumber('🇯🇴 الأردن')">🇯🇴 الأردن</button>
+
+<button onclick="showNumber('🇾🇪 اليمن')">🇾🇪 اليمن</button>
+
+<button onclick="showNumber('🇨🇳 الصين')">🇨🇳 الصين</button>
+
+<button onclick="showNumber('🇮🇳 الهند')">🇮🇳 الهند</button>
+
+<button onclick="showNumber('🇵🇰 باكستان')">🇵🇰 باكستان</button>
+
+</div>
+
+</div>
+
+
+<div id="result"></div>
