@@ -177,3 +177,144 @@ grid-template-columns:1fr;
 
 
 <div id="result"></div>
+<div id="result"></div>
+<div class="footer">
+© 2026 SyriaNumbers
+</div>
+
+
+<script>
+
+function randomNumber(country){
+
+let number="";
+
+switch(country){
+
+case "🇺🇸 أمريكا":
+number="+1 "+Math.floor(2000000000+Math.random()*7000000000);
+break;
+
+case "🇷🇺 روسيا":
+number="+7 "+Math.floor(1000000000+Math.random()*8000000000);
+break;
+
+case "🇩🇪 ألمانيا":
+number="+49 "+Math.floor(100000000+Math.random()*900000000);
+break;
+
+case "🇸🇦 السعودية":
+number="+966 5"+Math.floor(10000000+Math.random()*90000000);
+break;
+
+case "🇯🇴 الأردن":
+number="+962 7"+Math.floor(10000000+Math.random()*90000000);
+break;
+
+case "🇾🇪 اليمن":
+number="+967 "+Math.floor(700000000+Math.random()*200000000);
+break;
+
+case "🇨🇳 الصين":
+number="+86 "+Math.floor(10000000000+Math.random()*90000000000);
+break;
+
+case "🇮🇳 الهند":
+number="+91 "+Math.floor(6000000000+Math.random()*3000000000);
+break;
+
+case "🇵🇰 باكستان":
+number="+92 3"+Math.floor(10000000+Math.random()*90000000);
+break;
+
+}
+
+return number;
+
+}
+
+
+
+function showNumber(country){
+
+let num=randomNumber(country);
+
+
+document.getElementById("result").innerHTML=`
+
+<div class="card">
+
+<h2>${country}</h2>
+
+<div class="phone">
+${num}
+</div>
+
+<div class="price">
+السعر: 2$
+</div>
+
+
+<select id="service">
+
+<option value="">اختر الخدمة</option>
+
+<option>واتساب</option>
+
+<option>تيليجرام</option>
+
+<option>فيسبوك</option>
+
+<option>تويتر</option>
+
+</select>
+
+
+<button class="buy" onclick="requestCode('${country}')">
+طلب الكود
+</button>
+
+
+<button class="buy" onclick="showNumber('${country}')">
+توليد رقم جديد
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+function requestCode(country){
+
+let service=document.getElementById("service").value;
+
+
+if(service==""){
+
+alert("اختر الخدمة أولاً");
+
+return;
+
+}
+
+
+alert(
+"تم طلب الكود\n" +
+"الخدمة: "+service+
+"\nالدولة: "+country
+);
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
