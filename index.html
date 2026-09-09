@@ -12,7 +12,7 @@
 
 *{
 box-sizing:border-box;
-font-family:Tajawal,Arial,sans-serif;
+font-family:Arial,Tajawal,sans-serif;
 }
 
 body{
@@ -23,93 +23,42 @@ min-height:100vh;
 }
 
 
-header{
+.login{
 
-padding:35px 20px;
-text-align:center;
-background:
-linear-gradient(135deg,#000,#111,#000);
-
-box-shadow:0 0 30px #000;
+position:fixed;
+width:100%;
+height:100vh;
+background:#050505;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
 
 }
 
 
-.logo{
+.login h1{
 
-font-size:42px;
-font-weight:bold;
+font-size:45px;
 color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
+text-shadow:0 0 25px #00e5ff;
 
 }
 
 
-.subtitle{
+.login input{
 
-color:#aaa;
-margin-top:10px;
-
-}
-
-
-
-.container{
-
-max-width:900px;
-margin:auto;
-padding:20px;
+width:300px;
+padding:15px;
+margin:8px;
+background:#111;
+border:1px solid #333;
+border-radius:15px;
+color:white;
+font-size:17px;
 
 }
-
-
-
-.box{
-
-background:#101010;
-border:1px solid #222;
-border-radius:25px;
-padding:25px;
-margin-bottom:20px;
-animation:show .5s;
-
-}
-
-
-
-@keyframes show{
-
-from{
-opacity:0;
-transform:translateY(20px);
-}
-
-to{
-opacity:1;
-transform:none;
-}
-
-}
-
-
-
-h2{
-
-text-align:center;
-color:#00e5ff;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-
-}
-
 
 
 button{
@@ -130,11 +79,82 @@ transition:.3s;
 button:hover{
 
 background:#00e5ff;
-color:#000;
-transform:scale(1.03);
+color:black;
 
 }
 
+
+.login button{
+
+width:300px;
+margin-top:10px;
+background:#00e5ff;
+color:black;
+
+}
+
+
+
+header{
+
+padding:35px;
+text-align:center;
+background:linear-gradient(135deg,#000,#111,#000);
+
+}
+
+
+.logo{
+
+font-size:42px;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
+
+}
+
+
+.subtitle{
+
+color:#aaa;
+
+}
+
+
+.container{
+
+max-width:900px;
+margin:auto;
+padding:20px;
+
+}
+
+
+.box{
+
+background:#101010;
+border:1px solid #222;
+border-radius:25px;
+padding:25px;
+margin-bottom:20px;
+
+}
+
+
+h2{
+
+text-align:center;
+color:#00e5ff;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+
+}
 
 
 .card{
@@ -148,16 +168,13 @@ text-align:center;
 }
 
 
-
 .number{
 
 font-size:32px;
 color:#00ff88;
 direction:ltr;
-margin:20px;
 
 }
-
 
 
 .code{
@@ -168,15 +185,13 @@ color:#ffd700;
 }
 
 
-
 .balance{
 
-color:#00ff88;
-font-size:20px;
 text-align:center;
+color:#00ff88;
+font-size:22px;
 
 }
-
 
 
 .history{
@@ -184,10 +199,9 @@ text-align:center;
 background:#151515;
 padding:15px;
 border-radius:15px;
-margin-top:10px;
+margin:10px;
 
 }
-
 
 
 .timer{
@@ -196,7 +210,6 @@ font-size:40px;
 color:#ffcc00;
 
 }
-
 
 
 @media(max-width:600px){
@@ -215,12 +228,39 @@ font-size:32px;
 
 }
 
+
 </style>
 
 </head>
 
 
 <body>
+
+
+<div class="login" id="loginPage">
+
+<h1>
+📱 SyriaNumbers
+</h1>
+
+
+<input id="username" placeholder="اسم المستخدم">
+
+
+<input id="password" type="password" placeholder="كلمة المرور">
+
+
+<button onclick="register()">
+إنشاء حساب
+</button>
+
+
+<button onclick="login()">
+دخول
+</button>
+
+
+</div>
 
 
 <header>
@@ -234,26 +274,38 @@ font-size:32px;
 </div>
 
 </header>
-
-
 <div class="container">
+
+
 <div class="box" id="serviceBox">
 
 <h2>اختر التطبيق</h2>
 
 <div class="grid">
 
-<button onclick="chooseService('واتساب')">📱 واتساب</button>
+<button onclick="chooseService('واتساب')">
+📱 واتساب
+</button>
 
-<button onclick="chooseService('تيليجرام')">✈️ تيليجرام</button>
 
-<button onclick="chooseService('فيسبوك')">📘 فيسبوك</button>
+<button onclick="chooseService('تيليجرام')">
+✈️ تيليجرام
+</button>
 
-<button onclick="chooseService('تويتر')">🐦 تويتر</button>
+
+<button onclick="chooseService('فيسبوك')">
+📘 فيسبوك
+</button>
+
+
+<button onclick="chooseService('تويتر')">
+🐦 تويتر
+</button>
 
 </div>
 
 </div>
+
 
 
 
@@ -261,29 +313,60 @@ font-size:32px;
 
 <h2>اختر الدولة</h2>
 
+
 <div class="grid">
 
-<button onclick="createNumber('🇺🇸 أمريكا')">🇺🇸 أمريكا</button>
 
-<button onclick="createNumber('🇷🇺 روسيا')">🇷🇺 روسيا</button>
+<button onclick="createNumber('🇺🇸 أمريكا')">
+🇺🇸 أمريكا
+</button>
 
-<button onclick="createNumber('🇩🇪 ألمانيا')">🇩🇪 ألمانيا</button>
 
-<button onclick="createNumber('🇸🇦 السعودية')">🇸🇦 السعودية</button>
+<button onclick="createNumber('🇷🇺 روسيا')">
+🇷🇺 روسيا
+</button>
 
-<button onclick="createNumber('🇯🇴 الأردن')">🇯🇴 الأردن</button>
 
-<button onclick="createNumber('🇾🇪 اليمن')">🇾🇪 اليمن</button>
+<button onclick="createNumber('🇩🇪 ألمانيا')">
+🇩🇪 ألمانيا
+</button>
 
-<button onclick="createNumber('🇨🇳 الصين')">🇨🇳 الصين</button>
 
-<button onclick="createNumber('🇮🇳 الهند')">🇮🇳 الهند</button>
+<button onclick="createNumber('🇸🇦 السعودية')">
+🇸🇦 السعودية
+</button>
 
-<button onclick="createNumber('🇵🇰 باكستان')">🇵🇰 باكستان</button>
+
+<button onclick="createNumber('🇯🇴 الأردن')">
+🇯🇴 الأردن
+</button>
+
+
+<button onclick="createNumber('🇾🇪 اليمن')">
+🇾🇪 اليمن
+</button>
+
+
+<button onclick="createNumber('🇨🇳 الصين')">
+🇨🇳 الصين
+</button>
+
+
+<button onclick="createNumber('🇮🇳 الهند')">
+🇮🇳 الهند
+</button>
+
+
+<button onclick="createNumber('🇵🇰 باكستان')">
+🇵🇰 باكستان
+</button>
+
 
 </div>
 
 </div>
+
+
 
 
 
@@ -291,11 +374,15 @@ font-size:32px;
 
 <div class="balance">
 
-💰 الرصيد التجريبي: <span id="balance">10</span>
+💰 الرصيد:
+<span id="balance">
+10
+</span>
 
 </div>
 
 </div>
+
 
 
 
@@ -303,30 +390,134 @@ font-size:32px;
 
 
 
+
+
 <div class="box">
 
-<h2>📋 سجل الطلبات</h2>
+<h2>
+📋 سجل الطلبات
+</h2>
 
-<div id="history"></div>
+
+<div id="history">
+
+لا يوجد طلبات
 
 </div>
 
 
-
 </div>
 
 
-
+</div>
 <script>
 
-
+let currentUser="";
 let service="";
-
 let currentNumber="";
-
 let balance=10;
 
 
+
+// إنشاء حساب
+
+function register(){
+
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+
+if(user=="" || pass==""){
+
+alert("أدخل اسم المستخدم وكلمة المرور");
+
+return;
+
+}
+
+
+let users=JSON.parse(localStorage.getItem("users") || "{}");
+
+
+if(users[user]){
+
+alert("اسم المستخدم موجود مسبقاً");
+
+return;
+
+}
+
+
+
+users[user]={
+
+password:pass,
+balance:10,
+history:"",
+lastRequest:0
+
+};
+
+
+localStorage.setItem("users",JSON.stringify(users));
+
+
+alert("تم إنشاء الحساب بنجاح");
+
+}
+
+
+
+
+// تسجيل الدخول
+
+function login(){
+
+
+let user=document.getElementById("username").value;
+
+let pass=document.getElementById("password").value;
+
+
+let users=JSON.parse(localStorage.getItem("users") || "{}");
+
+
+if(users[user] && users[user].password==pass){
+
+
+currentUser=user;
+
+
+balance=users[user].balance;
+
+
+document.getElementById("balance").innerHTML=balance;
+
+
+document.getElementById("history").innerHTML=
+users[user].history || "لا يوجد طلبات";
+
+
+document.getElementById("loginPage").style.display="none";
+
+
+}
+
+else{
+
+alert("بيانات الدخول غير صحيحة");
+
+}
+
+
+}
+
+
+
+
+
+// اختيار التطبيق
 
 function chooseService(s){
 
@@ -341,57 +532,77 @@ document.getElementById("countryBox").style.display="block";
 
 
 
+// توليد رقم تجريبي
+
 function randomNumber(country){
+
 
 let numbers={
 
+
 "🇺🇸 أمريكا":"+1 "+Math.floor(1000000000+Math.random()*9000000000),
+
 
 "🇷🇺 روسيا":"+7 "+Math.floor(1000000000+Math.random()*9000000000),
 
+
 "🇩🇪 ألمانيا":"+49 "+Math.floor(100000000+Math.random()*900000000),
+
 
 "🇸🇦 السعودية":"+966 5"+Math.floor(10000000+Math.random()*90000000),
 
+
 "🇯🇴 الأردن":"+962 7"+Math.floor(10000000+Math.random()*90000000),
+
 
 "🇾🇪 اليمن":"+967 "+Math.floor(100000000+Math.random()*900000000),
 
+
 "🇨🇳 الصين":"+86 "+Math.floor(10000000000+Math.random()*90000000000),
+
 
 "🇮🇳 الهند":"+91 "+Math.floor(1000000000+Math.random()*9000000000),
 
+
 "🇵🇰 باكستان":"+92 3"+Math.floor(10000000+Math.random()*90000000)
+
 
 };
 
+
 return numbers[country];
+
 
 }
 
 
 
+
+// إنشاء طلب رقم
 
 function createNumber(country){
 
 
-let last=localStorage.getItem("lastRequest");
+let users=JSON.parse(localStorage.getItem("users") || "{}");
 
 
-if(last){
+let last=users[currentUser].lastRequest || 0;
+
 
 let diff=Date.now()-last;
 
 
+
 if(diff < 86400000){
+
 
 let hours=Math.ceil((86400000-diff)/3600000);
 
+
 alert("يمكنك طلب رقم جديد بعد "+hours+" ساعة");
 
-return;
 
-}
+return;
 
 }
 
@@ -408,6 +619,7 @@ document.getElementById("result").innerHTML=`
 <h2>${service}</h2>
 
 <h3>${country}</h3>
+
 
 <div class="number">
 
@@ -432,10 +644,14 @@ ${currentNumber}
 
 
 
+
+// طلب الكود
+
 function requestCode(){
 
 
 let time=60;
+
 
 
 document.getElementById("result").innerHTML+=`
@@ -450,15 +666,18 @@ document.getElementById("result").innerHTML+=`
 
 </div>
 
+
 </div>
 
 `;
 
 
-let x=setInterval(()=>{
+
+let timer=setInterval(()=>{
 
 
 time--;
+
 
 document.getElementById("timer").innerHTML=time;
 
@@ -466,7 +685,9 @@ document.getElementById("timer").innerHTML=time;
 
 if(time<=0){
 
-clearInterval(x);
+
+clearInterval(timer);
+
 
 
 let code=Math.floor(100000+Math.random()*900000);
@@ -485,11 +706,6 @@ ${code}
 
 </div>
 
-<p>
-
-احتفظ بالكود
-
-</p>
 
 </div>
 
@@ -497,10 +713,8 @@ ${code}
 
 
 
-saveHistory(code);
+saveData(code);
 
-
-localStorage.setItem("lastRequest",Date.now());
 
 
 }
@@ -513,17 +727,26 @@ localStorage.setItem("lastRequest",Date.now());
 
 
 
-function saveHistory(code){
+
+// حفظ بيانات المستخدم
+
+function saveData(code){
+
+
+let users=JSON.parse(localStorage.getItem("users") || "{}");
 
 
 balance--;
 
-document.getElementById("balance").innerHTML=balance;
+
+users[currentUser].balance=balance;
 
 
-let history=localStorage.getItem("history") || "";
+users[currentUser].lastRequest=Date.now();
 
-history += `
+
+
+users[currentUser].history += `
 
 <div class="history">
 
@@ -537,19 +760,19 @@ history += `
 
 `;
 
-localStorage.setItem("history",history);
 
 
-document.getElementById("history").innerHTML=history;
+localStorage.setItem("users",JSON.stringify(users));
 
 
-}
-
+document.getElementById("balance").innerHTML=balance;
 
 
 document.getElementById("history").innerHTML=
+users[currentUser].history;
 
-localStorage.getItem("history") || "لا يوجد طلبات";
+
+}
 
 
 
